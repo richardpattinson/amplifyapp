@@ -65,6 +65,10 @@ function App() {
                 placeholder="Note description"
                 value={formData.description}
             />
+            <input
+                type="file"
+                onChange={onChange}
+            />
             <button onClick={createNote}>Create Note</button>
             <div style={{marginBottom: 30}}>
                 {
@@ -73,6 +77,9 @@ function App() {
                             <h2>{note.name}</h2>
                             <p>{note.description}</p>
                             <button onClick={() => deleteNote(note)}>Delete note</button>
+                            {
+                                note.image && <img src={note.image} style={{width: 400}} />
+                            }
                         </div>
                     ))
                 }
